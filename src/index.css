@@ -263,6 +263,7 @@
   }
 
   .reset-button {
+    width: 100%;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -311,6 +312,7 @@
   .error {
     border: 2px solid salmon;
   }
+  
 
   /* LG-DEVICES */
   @media (min-width: 1400px) {
