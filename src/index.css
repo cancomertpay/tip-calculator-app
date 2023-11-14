@@ -1,0 +1,419 @@
+  /* font */
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+  body {
+    background-color: hsl(185, 41%, 84%);
+    min-height: 100vh;
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  #root {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+  }
+
+  header {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  }
+
+  main {
+    box-sizing: border-box;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  }
+
+  .fade-in-down {
+    animation: fadeInDown 0.8s ease-in-out forwards;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-in-out forwards;
+  }
+
+  @keyframes fadeInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .header {
+    margin: 2rem 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-sizing: border-box;
+    background-color: hsl(0, 0%, 100%);
+    padding: 2rem;
+    border-radius: 20px;
+
+    overflow: hidden;
+  }
+
+  form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  label {
+    font-size: 15px;
+    color: hsl(186, 14%, 43%);
+  }
+
+  .label-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input {
+    font-family: 'Space Mono', monospace;
+    color: hsl(183, 100%, 15%);
+    font-size: 24px;
+    direction: rtl;
+    padding: 5px;
+    background-color: hsl(189, 41%, 97%);
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid transparent;
+    transition: box-shadow 0.5s ease-out;
+
+    -moz-appearance: textfield;
+
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bill-form {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .people-count {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .select-tip-form {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Bu stil sayesinde sayı girişine ait oklar gizlenir */
+  .input::-webkit-inner-spin-button,
+  .input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .input:focus {
+    border: 2px solid hsl(172, 67%, 45%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .input-container {
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .input-container .input-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+  }
+
+
+  .select-tip-form .label-group {
+    width: 97%;
+  }
+
+  .select-tip-form .input-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+  .select-tip-form .input-container .input-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    width: 48%;
+    max-width: 48%;
+    box-sizing: border-box;
+  }
+
+  .select-tip-form .input-container .input-column .option-item {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(0, 0%, 100%);
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    transition: background-color 0.3s ease-in-out, box-shadow 0.5s ease-out;
+  }
+
+  .select-tip-form .input-container .input-column .option-item.error {
+    border: 2px solid salmon;
+  }
+
+  .select-tip-form .input-container .input-column .option-item:hover {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .select-tip-form .input-container .input-column .option-item.tip-form-input {
+    font-family: 'Space Mono', monospace;
+    color: hsl(183, 100%, 15%);
+    font-size: 24px;
+    padding: 10px;
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    outline: none;
+    border: 2px solid transparent;
+    transition: box-shadow 0.5s ease-out;
+
+    cursor: auto;
+  }
+
+  .select-tip-form .input-container .input-column .option-item.tip-form-input.error {
+    border: 2px solid salmon;
+  }
+
+  .select-tip-form .input-container .input-column .option-item.tip-form-input:focus {
+    border: 2px solid hsl(172, 67%, 45%);
+  }
+
+  .result-card {
+    border-radius: 14px;
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(172, 67%, 45%);
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+  }
+
+  .result-card .result-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-card .result-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: auto;
+    margin-top: -20px;
+  }
+
+  #total {
+    margin-top: -40px;
+  }
+
+  .result-header h2 {
+    font-size: 15px;
+    color: hsl(0, 0%, 100%);
+  }
+
+  .result-header p {
+    font-size: 14px;
+    margin-top: -15px;
+    color: hsl(186, 14%, 43%);
+  }
+
+  .result {
+    font-size: 30px;
+    overflow: auto;
+  }
+
+  .reset-button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Space Mono', monospace;
+    padding: 8px;
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+  }
+
+  .reset-button:hover {
+    background-color: hsl(185, 41%, 84%);
+    box-shadow: 0 0 10px rgba(231, 231, 231, 0.3);
+    animation: shake 0.7s ease-in-out;
+  }
+
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    20%,
+    50%,
+    80% {
+      transform: translateX(-5px);
+    }
+
+    40%,
+    60% {
+      transform: translateX(5px);
+    }
+  }
+
+  .error-msg {
+    color: salmon;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .error {
+    border: 2px solid salmon;
+  }
+
+  /* LG-DEVICES */
+  @media (min-width: 1400px) {
+    #root {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      max-width: none;
+    }
+
+    .card {
+      flex-direction: row;
+      width: 1000px;
+      padding: 2rem;
+      gap: 1rem;
+    }
+
+    form {
+    padding: 0 1rem;
+    max-width: 48%;
+    gap: 2rem;
+    }
+
+    .select-tip-form .input-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: space-between;
+    }
+  
+    .select-tip-form .input-container .input-column {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      box-sizing: border-box;
+    }
+
+    .select-tip-form .input-container .input-column .option-item {
+      flex-shrink: 0;
+      width: 130px;
+      box-sizing: border-box;
+    }
+
+    .result-card {
+      padding: 2rem;
+      box-sizing: border-box;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .result-card .result-inner {
+      gap: 7rem;
+    }
+
+    .result-card .result-group {
+      flex-wrap: wrap;
+      overflow: hidden;
+      height: 130px;
+    }
+
+    .result-header h2 {
+      font-size: 20px;
+      color: hsl(0, 0%, 100%);
+    }
+
+    .result-header p {
+      font-size: 14px;
+      margin-top: -15px;
+      color: hsl(186, 14%, 43%);
+    }
+
+    .result {
+      font-size: 50px;
+      overflow: auto;
+    }
+    .result-group-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .result-btn-container {
+      margin-top: auto;
+      display: flex;
+      height: 50px;
+      width: 100%;
+    }
+
+    .reset-button {
+      outline: none;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-family: 'Space Mono', monospace;
+      padding: 8px;
+      background-color: hsl(172, 67%, 45%);
+      color: hsl(183, 100%, 15%);
+
+      cursor: pointer;
+
+      transition: background-color 0.2s ease;
+    }
+
+  }
