@@ -28,21 +28,26 @@ export default function TipCalculatorProvider({ children }) {
 
   const calculateTip = () => {
     const billAmount = parseFloat(userInputs.bill);
-    const calculatedTip = (billAmount * userInputs.tipPercentage === "" ? 0 : userInputs.tipPercentage) / 100;
+    const tipPercentage = parseFloat(userInputs.tipPercentage); // Parse tipPercentage to float
+    const numberOfPeople = parseFloat(userInputs.numberOfPeople); // Parse numberOfPeople to float
+  
+    // Check if the parsed values are valid numbers
+    if (isNaN(billAmount) || isNaN(tipPercentage) || isNaN(numberOfPeople)) {
+      // Handle invalid input, perhaps show an error message
+      return;
+    }
+  
+    const calculatedTip = (billAmount * (tipPercentage === 0 ? 0 : tipPercentage)) / 100;
     const calculatedTotal = billAmount + calculatedTip;
-    const tipPerPerson =
-      calculatedTip /
-      (userInputs.numberOfPeople === "" ? 1 : userInputs.numberOfPeople);
-    const totalPerPerson =
-      calculatedTotal /
-      (userInputs.numberOfPeople === "" ? 1 : userInputs.numberOfPeople);
-
+    const tipPerPerson = calculatedTip / (numberOfPeople === 0 ? 1 : numberOfPeople);
+    const totalPerPerson = calculatedTotal / (numberOfPeople === 0 ? 1 : numberOfPeople);
+  
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 2,
     });
-
+  
     setTipAmount(formatter.format(tipPerPerson));
     setTotalAmount(formatter.format(totalPerPerson));
   };
