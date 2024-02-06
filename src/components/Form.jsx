@@ -101,7 +101,7 @@ function Form() {
         <div className="label-group">
           <label htmlFor="bill">Bill</label>
           {error.billErr && (
-            <p className="error-msg">Can't be a zero or empty</p>
+            <p className="error-msg">Can't be zero or empty</p>
           )}
         </div>
         <div className="input-container">
